@@ -14,6 +14,7 @@ import com.abc.onlinebanking.service.CustomerService;
 @RestController 
 
 public class CustomerController {
+	
 	//autowired the StudentService class  
 	
 	@Autowired  
@@ -28,14 +29,14 @@ public class CustomerController {
 	
 	//creating a get mapping that retrieves the detail of a specific student  
 	@GetMapping("/CustomerDetails/{id}")  
-	private CustomerDetails getCustomer(@PathVariable("id") int id)   
+	private CustomerDetails getCustomer(@PathVariable("id") String id)   
 	{  
 		return customerService.getCustomerById(id);  
 	}  
 	
 	//creating a delete mapping that deletes a specific student  
 	@DeleteMapping("/CustomerDetails/{id}")  
-	private void deleteCustomer(@PathVariable("id") int id)   
+	private void deleteCustomer(@PathVariable("id") String id)   
 	{  
 		customerService.delete(id);  
 	}  

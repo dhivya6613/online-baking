@@ -12,6 +12,7 @@ import javax.persistence.Table;
 public class LoginDetails {
 	
 	@Id
+	//@Column(name = "PASSWORD")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String loginId;
 	

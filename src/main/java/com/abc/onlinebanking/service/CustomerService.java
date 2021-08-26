@@ -8,6 +8,7 @@ import com.abc.onlinebanking.repository.*;
 
 @Service  
 public class CustomerService {
+	
 	@Autowired  
 	CustomerRepository customerRepository;  
 	
@@ -20,7 +21,7 @@ public class CustomerService {
 	}  
 	
 	//getting a specific record  
-	public CustomerDetails getCustomerById(int id)   
+	public CustomerDetails getCustomerById(String id)   
 	{  
 		return customerRepository.findById(id).get();  
 	}  
@@ -29,7 +30,7 @@ public class CustomerService {
 		customerRepository.save(customer);  
 	}  
 	//deleting a specific record  
-	public void delete(int id)   
+	public void delete(String id)   
 	{  
 		customerRepository.deleteById(id);  
 	}  

@@ -5,8 +5,10 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name = "ACCOUNT")
@@ -14,7 +16,8 @@ import javax.persistence.Table;
 public class AccountDetails {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ACCOUNT_ID")
 	private String accountNumber;
 	
 	@Column(name = "ACC_BALANCE")
@@ -23,6 +26,10 @@ public class AccountDetails {
 	@Column(name = "DATE_CREATED")
 	private LocalDate dateCreated;
 	
+	 @JsonBackReference
+	 @ManyToOne
+	 private CustomerDetails customerDetails;
+	 
 	public AccountDetails(String accountNumber, float accountBalance, LocalDate dateCreated) {
 		super();
 		this.accountNumber = accountNumber;

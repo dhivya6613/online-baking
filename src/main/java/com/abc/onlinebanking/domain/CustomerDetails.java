@@ -1,12 +1,21 @@
 package com.abc.onlinebanking.domain;
 import java.time.*;
+import java.util.List;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import javax.persistence.JoinColumn;
 @Entity
 @Table(name = "PERSONS")
 
@@ -14,8 +23,9 @@ public class CustomerDetails {
  
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name="CUSTOMER_ID")
   private String customerId;
-  /*
+  
   @Column(name = "NAME")
   private String name;
   /*
@@ -28,6 +38,30 @@ public class CustomerDetails {
   @Column(name = "CITY")
   private String city;
   /*
+  @OneToMany(targetEntity = AccountDetails.class, cascade = CascadeType.ALL)
+  @JoinColumn(name = "customer_account", referencedColumnName = "customerId")
+  private List<AccountDetails> accountDetails;
+  
+  /*
+  @OneToMany(mappedBy = "AccountDetails", fetch = FetchType.EAGER,
+          cascade = CascadeType.ALL)
+  
+  @JoinTable(name="USERS_ACCOUNT_MAPPING", joinColumns={@JoinColumn(name="MY_CUSTOMER_ID", referencedColumnName="CUSTOMER_ID")}
+  , inverseJoinColumns={@JoinColumn(name="MY_ACCOUNT_ID", referencedColumnName="ACCOUNT_ID")})
+  
+  @JsonManagedReference
+  
+  private Set<AccountDetails> accountDetails;
+  
+  public Set<AccountDetails> getAccountDetails() {
+	return accountDetails;
+  }
+  
+  public void setAccountDetails(Set<AccountDetails> accountDetails) {
+	this.accountDetails = accountDetails;
+  }
+  */
+/*
   @Column(name = "PHONE")
   private long phone;
   */

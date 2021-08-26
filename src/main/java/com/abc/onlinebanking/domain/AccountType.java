@@ -9,7 +9,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "INTEREST_RATE")
 
-public class InterestRateDetails {
+public class AccountType {
 	@Id
 	@Column(name = "ACC_TYPE")
 	private String accountType;
@@ -18,7 +18,7 @@ public class InterestRateDetails {
 	private float interestRate;
 	
 	//constructor
-	public InterestRateDetails(String accountType, float interestRate) {
+	public AccountType(String accountType, float interestRate) {
 		super();
 		this.accountType = accountType;
 		this.interestRate = interestRate;
